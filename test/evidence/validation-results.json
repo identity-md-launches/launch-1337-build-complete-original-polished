@@ -1,0 +1,176 @@
+{
+  "ranAt": "2026-10-11T20:04:36.173Z",
+  "chromium": "/opt/imd-mcp/ms-playwright/chromium-1246/chrome-linux64/chrome",
+  "results": [
+    {
+      "name": "desktop: head metadata present",
+      "pass": true,
+      "detail": "title=\"Tongue Rush: snap bugs from a moonlit lily pad\""
+    },
+    {
+      "name": "desktop: fonts loaded (Baloo 2, Nunito)",
+      "pass": true,
+      "detail": "document.fonts.check true"
+    },
+    {
+      "name": "desktop: start screen shows title and Start button in first screen",
+      "pass": true,
+      "detail": "h1=\"Tongue Rush\" start button at y=322"
+    },
+    {
+      "name": "desktop: Start button has initial focus",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "desktop: run starts, HUD visible, start overlay hidden",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "desktop: audio context running after gesture",
+      "pass": true,
+      "detail": "running"
+    },
+    {
+      "name": "desktop: mouse aim + click catches a fly and scores",
+      "pass": true,
+      "detail": "score=10"
+    },
+    {
+      "name": "desktop: golden firefly raises the multiplier",
+      "pass": true,
+      "detail": "multiplier=2x"
+    },
+    {
+      "name": "desktop: rainbow bug starts Frenzy (bar visible)",
+      "pass": true,
+      "detail": "frenzy active"
+    },
+    {
+      "name": "desktop: Escape pauses, focus moves to Resume",
+      "pass": true,
+      "detail": "paused, focus=btn-resume"
+    },
+    {
+      "name": "desktop: Tab order inside pause panel and visible focus ring",
+      "pass": true,
+      "detail": "focus=btn-restart-pause outline solid 3px"
+    },
+    {
+      "name": "desktop: Escape resumes, focus returns to pause button",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "desktop: keyboard aim (ArrowLeft) + Space catches a fly",
+      "pass": true,
+      "detail": "score 260 -> 320"
+    },
+    {
+      "name": "desktop: wasp hit costs a life and resets the multiplier",
+      "pass": true,
+      "detail": "2 lives left, multiplier 1x"
+    },
+    {
+      "name": "desktop: three wasp hits end the run and show the game-over panel",
+      "pass": true,
+      "detail": "score shown: 320"
+    },
+    {
+      "name": "desktop: R restarts instantly",
+      "pass": true,
+      "detail": "new run"
+    },
+    {
+      "name": "desktop: M toggles mute and updates all mute buttons",
+      "pass": true,
+      "detail": "aria-pressed toggled"
+    },
+    {
+      "name": "desktop: blur (tab switch) pauses the game",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "desktop: no console errors",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "name": "desktop: no failed resource loads",
+      "pass": true,
+      "detail": "all < 400"
+    },
+    {
+      "name": "mobile 390: product and Start button on first screen, no horizontal overflow",
+      "pass": true,
+      "detail": "start button bottom=381"
+    },
+    {
+      "name": "mobile 390: touch targets at least 44px",
+      "pass": true,
+      "detail": "[[\"btn-start\",192,48],[\"btn-mute-start\",134,44]]"
+    },
+    {
+      "name": "mobile: tap aims and snaps (fly caught)",
+      "pass": true,
+      "detail": "score=10"
+    },
+    {
+      "name": "mobile: drag to aim, release to snap (firefly caught)",
+      "pass": true,
+      "detail": "score 10 -> 60, multiplier 2x"
+    },
+    {
+      "name": "mobile: pause button (44px) opens pause panel",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "mobile: no console errors",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "name": "mobile 320: reflows without horizontal scroll, Start reachable",
+      "pass": true,
+      "detail": "start button at y=176"
+    },
+    {
+      "name": "reduced motion: preference honoured by the game and CSS",
+      "pass": true,
+      "detail": "shake/particles reduced, panel animation none"
+    },
+    {
+      "name": "iframe: sandboxed frame loaded and replied ready on the init channel",
+      "pass": true,
+      "detail": "ready received"
+    },
+    {
+      "name": "iframe: localStorage is denied and handled",
+      "pass": true,
+      "detail": "storage blocked, no error thrown by game"
+    },
+    {
+      "name": "iframe: parent pause message pauses the game",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "iframe: wrong channel is ignored",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "iframe: game over posts an integer score to the parent",
+      "pass": true,
+      "detail": "score message {\"protocol\":\"pepe-game/1\",\"type\":\"score\",\"channel\":\"test-channel\",\"score\":0}"
+    },
+    {
+      "name": "iframe: no page errors",
+      "pass": true,
+      "detail": "none"
+    }
+  ]
+}

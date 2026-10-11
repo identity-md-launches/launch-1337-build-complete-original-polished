@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0b1a3a" />
+    <title>Tongue Rush: snap bugs from a moonlit lily pad</title>
+    <meta name="description" content="Tongue Rush is a moonlit pond arcade game. Aim Pepe's tongue, snap flies and golden fireflies, ride Frenzy Mode and dodge wasps. Three lives, endless rounds." />
+    <meta property="og:title" content="Tongue Rush: snap bugs from a moonlit lily pad" />
+    <meta property="og:description" content="Aim Pepe's tongue, snap fireflies, build a 12x multiplier and dodge wasps on a moonlit pond." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="./cover.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <main id="app" class="app">
+      <canvas id="game" class="game-canvas" aria-label="Tongue Rush game scene" role="img"></canvas>
+
+      <div id="hud" class="hud" hidden>
+        <div class="hud-group hud-score">
+          <span class="hud-label">Score</span>
+          <span id="hud-score" class="hud-value">0</span>
+        </div>
+        <div class="hud-group hud-multi">
+          <span class="hud-label">Multiplier</span>
+          <span id="hud-multi" class="hud-value">1x</span>
+        </div>
+        <div class="hud-group hud-lives" aria-label="Lives">
+          <span class="hud-label">Lives</span>
+          <span id="hud-lives" class="hud-value hud-hearts" aria-hidden="true"></span>
+          <span id="hud-lives-text" class="visually-hidden">3 lives left</span>
+        </div>
+        <div class="hud-actions">
+          <button id="btn-pause" class="icon-btn" type="button" aria-label="Pause">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="6" y="5" width="4" height="14" rx="1.5"/><rect x="14" y="5" width="4" height="14" rx="1.5"/></svg>
+          </button>
+          <button id="btn-mute-hud" class="icon-btn" type="button" aria-label="Mute sound" aria-pressed="false">
+            <svg class="ico-sound-on" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16 8.5a4.5 4.5 0 0 1 0 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <svg class="ico-sound-off" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16 9l5 6M21 9l-5 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </button>
+        </div>
+        <div id="frenzy-bar" class="frenzy-bar" hidden aria-hidden="true"><div id="frenzy-fill" class="frenzy-fill"></div></div>
+      </div>
+
+      <section id="screen-start" class="overlay overlay-start" aria-labelledby="title-start">
+        <div class="panel panel-start">
+          <p class="kicker">Pepe2Pepe arcade</p>
+          <h1 id="title-start" class="title">Tongue Rush</h1>
+          <p class="lede">Snap bugs from a moonlit lily pad.</p>
+          <button id="btn-start" class="btn btn-primary" type="button">Start game</button>
+          <ul class="controls-list" aria-label="How to play">
+            <li><span class="key">Mouse</span> aim, <span class="key">click</span> or <span class="key">Space</span> snaps the tongue</li>
+            <li><span class="key">Touch</span> drag to aim, release or tap to snap</li>
+            <li><span class="key">Gamepad</span> right stick aims, <span class="key">A</span> snaps</li>
+            <li><span class="key">Esc</span> pauses, <span class="key">R</span> restarts, <span class="key">M</span> mutes</li>
+          </ul>
+          <p class="legend" aria-label="Bug guide">
+            <span class="legend-item"><i class="dot dot-fly" aria-hidden="true"></i>Flies score</span>
+            <span class="legend-item"><i class="dot dot-gold" aria-hidden="true"></i>Fireflies raise the multiplier</span>
+            <span class="legend-item"><i class="dot dot-rainbow" aria-hidden="true"></i>Rainbow bugs start Frenzy</span>
+            <span class="legend-item"><i class="dot dot-wasp" aria-hidden="true"></i>Wasps cost a life</span>
+          </p>
+          <div class="panel-foot">
+            <button id="btn-mute-start" class="btn btn-ghost" type="button" aria-pressed="false">Mute sound</button>
+            <span id="best-start" class="best">Best this device: 0</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="screen-pause" class="overlay" hidden aria-labelledby="title-pause">
+        <div class="panel">
+          <h2 id="title-pause" class="title title-sm">Paused</h2>
+          <p class="lede">The pond waits for you.</p>
+          <div class="btn-row">
+            <button id="btn-resume" class="btn btn-primary" type="button">Resume</button>
+            <button id="btn-restart-pause" class="btn btn-ghost" type="button">Restart run</button>
+            <button id="btn-mute-pause" class="btn btn-ghost" type="button" aria-pressed="false">Mute sound</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="screen-over" class="overlay" hidden aria-labelledby="title-over">
+        <div class="panel">
+          <h2 id="title-over" class="title title-sm">Run over</h2>
+          <p class="lede" id="over-line">The wasps got the better of you.</p>
+          <dl class="stats">
+            <div><dt>Score</dt><dd id="over-score">0</dd></div>
+            <div><dt>Best multiplier</dt><dd id="over-multi">1x</dd></div>
+            <div><dt>Bugs caught</dt><dd id="over-caught">0</dd></div>
+            <div><dt>Best</dt><dd id="over-best">0</dd></div>
+          </dl>
+          <div class="btn-row">
+            <button id="btn-again" class="btn btn-primary" type="button">Play again</button>
+            <button id="btn-mute-over" class="btn btn-ghost" type="button" aria-pressed="false">Mute sound</button>
+          </div>
+          <p class="hint">Press R or tap anywhere on the pond to restart instantly.</p>
+        </div>
+      </section>
+
+      <p id="announcer" class="visually-hidden" role="status" aria-live="polite"></p>
+    </main>
+    <script type="module" src="./src/main.ts"></script>
+  </body>
+</html>

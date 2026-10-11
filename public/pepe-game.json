@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "pepe-browser-game/1",
+  "title": "Tongue Rush",
+  "version": "1.0.0",
+  "summary": "Snap bugs from a moonlit lily pad, build a 12x multiplier and dodge wasps.",
+  "description": "Pepe sits on a floating lily pad in the middle of a moonlit pond. Bugs cross the sky in rhythmic patterns: aim and snap the tongue to catch them. Golden fireflies raise the multiplier up to 12x, rainbow bugs start a slow-motion Frenzy with huge score boosts, and wasps break the multiplier and cost a life. Near-misses on wasps earn style bonuses. Three lives, endless rounds, instant restart, synthesized sound effects and chill pond music.",
+  "controls": "Mouse to aim, click or Space to snap. WASD or arrow keys also aim. Touch: drag to aim, release or tap to snap. Gamepad: right stick aims, A snaps. Esc pauses, R restarts, M mutes.",
+  "genre": "arcade",
+  "players": 1,
+  "mobile": true,
+  "entry": "index.html",
+  "cover": "cover.png"
+}

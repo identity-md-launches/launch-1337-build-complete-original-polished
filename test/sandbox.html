@@ -1,0 +1,23 @@
+<!doctype html>
+<!-- Minimal stand-in for the Pepe2Pepe player: sandboxed iframe + pepe-game/1 handshake. -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Tongue Rush sandbox harness</title>
+<style>html,body{margin:0;background:#222;height:100%} iframe{display:block;width:900px;height:600px;border:0}</style>
+</head>
+<body>
+<iframe id="player" sandbox="allow-scripts allow-pointer-lock" src="/preview/index.html#debug" title="Tongue Rush"></iframe>
+<script>
+  window.__msgs = [];
+  const frame = document.getElementById('player');
+  window.addEventListener('message', (e) => {
+    if (e.source !== frame.contentWindow) return;
+    if (e.data && e.data.protocol === 'pepe-game/1') window.__msgs.push(e.data);
+  });
+  frame.addEventListener('load', () => {
+    frame.contentWindow.postMessage({ protocol: 'pepe-game/1', type: 'init', channel: 'test-channel' }, '*');
+  });
+</script>
+</body>
+</html>

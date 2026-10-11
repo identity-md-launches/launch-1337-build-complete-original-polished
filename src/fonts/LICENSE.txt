@@ -1,0 +1,10 @@
+Bundled fonts (latin subsets served by Google Fonts), both licensed under the
+SIL Open Font License 1.1 (https://openfontlicense.org/):
+
+- Baloo 2 (weight 800): Copyright 2019 The Baloo 2 Project Authors
+  https://github.com/EkType/Baloo2
+- Nunito (variable weight): Copyright 2014 The Nunito Project Authors
+  https://github.com/googlefonts/nunito
+
+The OFL permits bundling, use and redistribution of the font software with
+this game; the fonts themselves are not sold.

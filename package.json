@@ -1,0 +1,18 @@
+{
+  "name": "tongue-rush",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Tongue Rush: a moonlit pond arcade game for the Pepe2Pepe arcade.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "check": "node test/check-dist.mjs"
+  },
+  "devDependencies": {
+    "typescript": "5.9.2",
+    "vite": "7.1.7"
+  }
+}
